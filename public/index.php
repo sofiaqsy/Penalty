@@ -10,7 +10,7 @@
 | is ready to receive HTTP / Console requests from the environment.
 |
 */
-
+ echo 'HOAAA';exit;
 $app = require __DIR__.'/../bootstrap/app.php';
 
 /*
