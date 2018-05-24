@@ -10,7 +10,8 @@
 | is ready to receive HTTP / Console requests from the environment.
 |
 */
- echo 'HOAAA';exit;
+date_default_timezone_set('America/Los_Angeles');
+
 $app = require __DIR__.'/../bootstrap/app.php';
 
 /*
