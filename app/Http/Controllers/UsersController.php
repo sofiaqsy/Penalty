@@ -10,7 +10,7 @@ class UsersController extends Controller
     /*  $user = new User();
       $user->name = 'asas';
       $user->email = 'email';*/
-      echo 'usersss';
+      echo 'useasasasrsss';
       $user = User::all();
 
 
