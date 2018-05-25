@@ -11,7 +11,7 @@
 |
 */
 
-$app->get('/d', function () use ($app) {
+$app->get('/', function () use ($app) {
     return $app->version();
 });
 
