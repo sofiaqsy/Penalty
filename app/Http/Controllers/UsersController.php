@@ -12,8 +12,8 @@ class UsersController extends Controller
       $user->email = 'email';*/
       echo 'useasasasrsss';
       $user = User::all();
-
-
+var_dump($user);
+exit;
       return response()->json([$user],200);
     }
 
