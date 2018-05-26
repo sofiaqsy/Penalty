@@ -22,3 +22,12 @@ $app->get('/key', function(){
 
 
 $app->get('/users', ['uses' => 'UsersController@index']);
+
+$app->get('/salas', ['uses' => 'SalaController@list']);
+
+
+$app->get('/sala','SalaController@list');
+$app->post('/boards','BoardController@store');
+$app->get('/boards/{board}','BoardController@show');
+$app->put('/boards/{boards}','BoardController@update');
+$app->delete('/boards/{boards}','BoardController@destroy');
