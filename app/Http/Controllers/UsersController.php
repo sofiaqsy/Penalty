@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers;
 use  App\User;
+use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
 
-    function index(){
-    /*  $user = new User();
-      $user->name = 'asas';
-      $user->email = 'email';*/
-      echo 'useasasasrsss';
-      $user = User::all();
-var_dump($user);
-exit;
-      return response()->json([$user],200);
+    function index(Request $request)
+    {
+        $user = User::all();
+        return response()->json([$user],200);
+    }
+
+    function createaUser(Request $request)
+    {
+      if($request->isJson()){
+
+        return response()->json([$user],200);
+      }
+     return response()->json(['error' => 'no autorizado'], 401, []);
     }
 
 
