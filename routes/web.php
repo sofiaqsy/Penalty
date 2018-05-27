@@ -56,3 +56,5 @@ $app->put('/sala/{idsala}','SalaController@update');
 $app->delete('/sala/{idsala}','SalaController@destroy');
 $app->get('/partidos','PartidoController@index');
 $app->get('/noticias','NoticiaController@index');
+
+$app->post('/comentario','comentarioController@CreateComentario');
