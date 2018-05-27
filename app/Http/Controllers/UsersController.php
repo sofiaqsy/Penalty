@@ -9,6 +9,7 @@ class UsersController extends Controller
 
     function index(Request $request)
     {
+
         $user = User::all();
         return response()->json([$user],200);
     }
