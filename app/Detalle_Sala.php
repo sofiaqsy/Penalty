@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  *
  */
-class Equipo extends Model
+class Detalle_Sala extends Model
 {
   protected $guarded = [];
 

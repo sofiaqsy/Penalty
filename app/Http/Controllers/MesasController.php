@@ -11,6 +11,7 @@ class MesasController extends Controller
 {
     function listarMesa(Request $request)
     {
+
         $data = $request->json()->all();
 
         $usuario= DB::table("usuario as a")
