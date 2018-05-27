@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class usuarioController extends Controller
 {
 
-    function index(Request $request)
+    function index()
     {
 
         $user = Usuario::all();

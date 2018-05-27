@@ -43,7 +43,7 @@ $app->get('/usuario','usuarioController@index');
 $app->post('/usuario','usuarioController@CreateUsuario');
 $app->post('/usuario/Login','usuarioController@Login');
 
-$app->post('/Mesa','MesasController@ListarMsa');
+$app->post('/mesa','MesasController@listarMesa');
 
 $app->get('/users', ['uses' => 'UsersController@index']);
 
