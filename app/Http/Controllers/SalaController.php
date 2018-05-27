@@ -127,7 +127,12 @@ class SalaController extends Controller
       public function dividirGanancia(Request $request)
       {
 
-        
+        $usuario= DB::table("usuario as a")
+        ->join("detalle_sala as d","idusuario","id_usuario")
+        ->join("salas as s","s.id","id_sala")
+        ->select("idusuario", "a.nombre", "apellidos", "email", "password", "fecha_nacimiento", "pais_idpais", "monedas")
+        ->orderby("a.idusuario","desc")->get();
+         var_dump($usuario);exit;
 
         Detalle_Sala::create([
           'id_sala' => $request->id_sala,

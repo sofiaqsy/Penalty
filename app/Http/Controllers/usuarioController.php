@@ -33,10 +33,9 @@ class usuarioController extends Controller
     }
 
     function Login(Request $request){
-        $data = $request->json()->all();
         try{
-            $usuario =Usuario::where('email',$data['email'])->first();
-            $pass =Usuario::where('password',$data['password'])->first();
+            $usuario =Usuario::where('email',$request->email)->first();
+            $pass =Usuario::where('password',$request->password)->first();
             if($usuario && $pass ){
                 return response()->json($usuario,200);
             }

@@ -48,6 +48,8 @@ $app->post('/sala/evaluar','EvaluacionController@EvaluacionSala');
 $app->put('/sala/edit/{idsala}','SalaController@destroy');
 
 $app->delete('/sala/{idsala}','SalaController@destroy');
+$app->post('/sala/dividir','SalaController@dividirGanancia');
+
 
 
 
