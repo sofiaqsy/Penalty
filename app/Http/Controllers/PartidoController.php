@@ -13,5 +13,12 @@ class PartidoController extends Controller
         return response()->json([$partidos],200);
     }
 
+    public function sala(Request $request)
+    {
+
+      exit;
+        $partidos = Partido::all();
+        return response()->json([$partidos],200);
+    }
 
 }

@@ -54,5 +54,13 @@ $app->post('/sala','SalaController@store');
 $app->get('/sala/{idsala}','SalaController@show');
 $app->put('/sala/{idsala}','SalaController@update');
 $app->delete('/sala/{idsala}','SalaController@destroy');
+
+
+
+
 $app->get('/partidos','PartidoController@index');
+
+$app->get('/partidos/sala', 'PartidoController@sala');
+
+
 $app->get('/noticias','NoticiaController@index');

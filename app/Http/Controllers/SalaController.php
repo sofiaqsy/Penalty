@@ -19,6 +19,13 @@ class SalaController extends Controller
           return response()->json(['sala'=> $sala],200);
       }
 
+      public function showSalas($partidoId)
+      {
+        exit;
+        var_dump($salaId);
+          return response()->json(['response'=> 'Sala creada'],200);
+      }
+
       public function store(Request $request)
       {
           $this->validate($request,['nombre'=>'required']);

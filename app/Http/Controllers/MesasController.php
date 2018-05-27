@@ -9,9 +9,7 @@ class usuarioController extends Controller
 {
     function ListarMsa(Request $request)
     {
-
         $user = Usuario::all();
         return response()->json($user,200);
-
     }
 }
