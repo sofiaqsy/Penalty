@@ -1,7 +1,9 @@
 <?php
 
+
 namespace App\Http\Controllers;
-use  App\Partido;
+use App\Partido;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class PartidoController extends Controller
@@ -13,7 +15,7 @@ class PartidoController extends Controller
         return response()->json([$partidos],200);
     }
 
-    public function sala(Request $request)
+    public function Sala(Request $request)
     {
 
       exit;

@@ -32,12 +32,7 @@ var_dump($res);exit;
 });
 
 $app->get('/sala','SalaController@list');
-$app->post('/boards','BoardController@store');
-$app->get('/boards/{board}','BoardController@show');
-$app->put('/boards/{boards}','BoardController@update');
-$app->delete('/boards/{boards}','BoardController@destroy');
-$app->get('/boards','BoardController@index');
-$app->post('/boards','BoardController@store');
+
 
 $app->get('/usuario','usuarioController@index');
 $app->post('/usuario','usuarioController@CreateUsuario');
@@ -53,14 +48,17 @@ $app->get('/sala','SalaController@index');
 $app->post('/sala','SalaController@store');
 $app->get('/sala/{idsala}','SalaController@show');
 $app->put('/sala/{idsala}','SalaController@update');
+$app->post('/sala/salir','SalaController@salirDeSala');
+
+
 $app->delete('/sala/{idsala}','SalaController@destroy');
 
 
 
 
 $app->get('/partidos','PartidoController@index');
+$app->post('/partidos/Sala','PartidoController@Sala');
 
-$app->get('/partidos/sala', 'PartidoController@sala');
 
 
 $app->get('/noticias','NoticiaController@index');
