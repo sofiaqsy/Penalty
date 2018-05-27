@@ -48,8 +48,15 @@ $app->get('/sala','SalaController@index');
 $app->post('/sala','SalaController@store');
 $app->get('/sala/{idsala}','SalaController@show');
 $app->put('/sala/{idsala}','SalaController@update');
-$app->post('/sala/salir','SalaController@salirDeSala');
 
+
+$app->post('/sala/salir','SalaController@salirDeSala');
+$app->post('/sala/ingresar','SalaController@IngresarSala');
+$app->post('/sala/evaluar','EvaluacionController@EvaluacionSala');
+
+
+
+$app->put('/sala/edit/{idsala}','SalaController@destroy');
 
 $app->delete('/sala/{idsala}','SalaController@destroy');
 
