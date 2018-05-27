@@ -36,4 +36,36 @@ class MesasController extends Controller
         return response()->json(["usuario"=>$usuario,"comentario"=>$comentario],200);//,"sala"=>$sala
 
     }
+    public function dividirGanancia(Request $request)
+    {
+      $data = $request->json()->all();
+      $usuario= DB::table("usuario as a")
+              ->join("detalle_sala as d","idusuario","id_usuario")
+              ->join("salas as s","s.id","id_sala")
+              ->select("a.idusuario", "a.nombre", "a.apellidos", "a.email", "a.password", "a.fecha_nacimiento", "a.pais_idpais", "a.monedas")
+              ->where("s.id","=",$data['id'])
+              ->orderby("a.idusuario","desc")->get();
+
+       var_dump($usuario->idusuario);exit;
+
+      Detalle_Sala::create([
+        'id_sala' => $request->id_sala,
+        'id_usuario' => $request->id_usuario,
+        'goles_equipo1' => $request->goles_equipo1,
+        'goles_equipo2' => $request->goles_equipo2
+      ]);
+
+
+      $sala=Sala::find($request->id_sala);
+      $sala->monto_total = $sala->monto_total + $sala->apuesta_base;
+
+      $usuario = Usuario::find($request->id_usuario);
+      $usuario->monedas = $usuario->monedas - $sala->apuesta_base;
+
+      $sala->save();
+      $usuario->save();
+
+      return response()->json($sala,200);
+
+    }
 }

@@ -28,6 +28,8 @@ $app->post('/usuario','usuarioController@CreateUsuario');
 $app->post('/usuario/Login','usuarioController@Login');
 
 $app->put('/mesa/{id}','MesasController@listarMesa');
+$app->post('/mesa/dividir','MesasController@dividirGanancia');
+
 
 $app->get('/users', ['uses' => 'UsersController@index']);
 
@@ -46,10 +48,7 @@ $app->post('/sala/evaluar','EvaluacionController@EvaluacionSala');
 
 
 $app->put('/sala/edit/{idsala}','SalaController@destroy');
-
 $app->delete('/sala/{idsala}','SalaController@destroy');
-$app->post('/sala/dividir','SalaController@dividirGanancia');
-
 
 
 

@@ -141,6 +141,7 @@ class SalaController extends Controller
           'goles_equipo2' => $request->goles_equipo2
         ]);
 
+
         $sala=Sala::find($request->id_sala);
         $sala->monto_total = $sala->monto_total + $sala->apuesta_base;
 
