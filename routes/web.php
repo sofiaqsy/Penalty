@@ -20,14 +20,15 @@ $app->get('/key', function(){
   return str_random(32);
 });
 
-
-$app->get('/users', ['uses' => 'UsersController@index']);
-
-$app->get('/salas', ['uses' => 'SalaController@list']);
-
-
 $app->get('/sala','SalaController@list');
 $app->post('/boards','BoardController@store');
 $app->get('/boards/{board}','BoardController@show');
 $app->put('/boards/{boards}','BoardController@update');
 $app->delete('/boards/{boards}','BoardController@destroy');
+
+
+$app->get('/usuario','usuarioController@index');
+$app->post('/usuario','usuarioController@CreateUsuario');
+$app->post('/usuario/Login','usuarioController@Login');
+
+$app->post('/Mesa','MesasController@ListarMsa');
