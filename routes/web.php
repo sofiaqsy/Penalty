@@ -38,7 +38,7 @@ $app->get('/usuario','usuarioController@index');
 $app->post('/usuario','usuarioController@CreateUsuario');
 $app->post('/usuario/Login','usuarioController@Login');
 
-$app->post('/mesa','MesasController@listarMesa');
+$app->put('/mesa/{id}','MesasController@listarMesa');
 
 $app->get('/users', ['uses' => 'UsersController@index']);
 
