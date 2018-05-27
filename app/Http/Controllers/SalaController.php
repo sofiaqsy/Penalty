@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use  App\Sala;
+use  App\Usuario;
 use  App\Detalle_Sala;
 use Illuminate\Http\Request;
 use DB;
@@ -59,21 +60,74 @@ class SalaController extends Controller
 
       public function salirDeSala(Request $request)
       {
-        exit;
-        var_dump($request->id_sala);exit;
-          $id = Sala::where('id_sala', $request->id_sala);
-                    exit;
 
+        $usuario = usuario::find($request->id_usuario);
+        $sala = sala::find($request->id_sala);
+        if($sala->limite_participantes <= $sala->cantidad_participantes){
+          $sala = $sala->cantidad_participantes + 1;
+          if($usuario->monedas > 0){
 
-          var_dump($id);exit;
+            Detalle_Sala::create([
+              'id_sala' => $request->id_sala,
+              'id_usuario' => $request->id_usuario,
+              'goles_equipo1' => $request->goles_equipo1,
+              'goles_equipo2' => $request->goles_equipo2
+            ]);
 
+            $sala=sala::find($request->id_sala);
+            $sala->monto_total = $sala->monto_total + $sala->apuesta_base;
+            $usuario->monedas = $usuario->monedas - $sala->apuesta_base;
+            $sala->save();
+            $usuario->save();
 
-          return response()->json($sala,200);
+          }else{
+            return response()->json('Monedas insuficientes',200);
+          }
+
+        }else{
+          return response()->json('Monedas Integrantes llenos',200);
+        }
+        return response()->json($sala,200);
+
 
       }
 
       public function ingresarSala(Request $request)
       {
+        $usuario = usuario::find($request->id_usuario);
+        $sala = sala::find($request->id_sala);
+        if($sala->limite_participantes <= $sala->cantidad_participantes){
+          $sala = $sala->cantidad_participantes + 1;
+          if($usuario->monedas > 0){
+
+            Detalle_Sala::create([
+              'id_sala' => $request->id_sala,
+              'id_usuario' => $request->id_usuario,
+              'goles_equipo1' => $request->goles_equipo1,
+              'goles_equipo2' => $request->goles_equipo2
+            ]);
+
+            $sala=sala::find($request->id_sala);
+            $sala->monto_total = $sala->monto_total + $sala->apuesta_base;
+            $usuario->monedas = $usuario->monedas - $sala->apuesta_base;
+            $sala->save();
+            $usuario->save();
+
+          }else{
+            return response()->json('Monedas insuficientes',200);
+          }
+
+        }else{
+          return response()->json('Monedas Integrantes llenos',200);
+        }
+        return response()->json($sala,200);
+
+      }
+
+      public function dividirGanancia(Request $request)
+      {
+
+        
 
         Detalle_Sala::create([
           'id_sala' => $request->id_sala,
@@ -101,7 +155,7 @@ class SalaController extends Controller
       {
 
         sala::destroy($id);
-        
+
       }
 
 }

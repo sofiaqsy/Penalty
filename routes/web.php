@@ -18,18 +18,7 @@ $app->get('/', function () use ($app) {
 });
 
 
-$app->get('/key', function(){
 
-  $client = new GuzzleHttp\Client();
-  $res = $client->request('GET', 'https://jsonplaceholder.typicode.com/', [
-  'headers' => [
-  'Accept' => 'application/json',
-  'Content-type’ => ‘application/json'
-  ]]);
-
-var_dump($res);exit;
-
-});
 
 $app->get('/sala','SalaController@list');
 
